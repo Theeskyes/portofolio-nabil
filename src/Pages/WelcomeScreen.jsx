@@ -50,7 +50,7 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 2000,
       once: false,
       mirror: false,
     });
@@ -59,8 +59,8 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
       setIsLoading(false);
       setTimeout(() => {
         onLoadingComplete?.();
-      }, 1000);
-    }, 3400);
+      }, 2000);
+    }, 5000);
     
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);
@@ -137,7 +137,7 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
                     <span data-aos="fade-up" data-aos-delay="800" className="inline-block px-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                       Portfolio
                     </span>{' '}
-                    <span data-aos="fade-up" data-aos-delay="1000" className="inline-block px-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    <span data-aos="fade-up" data-aos-delay="2000" className="inline-block px-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                       Website
                     </span>
                   </div>
@@ -161,7 +161,7 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
                   <div className="relative flex items-center gap-2 text-lg sm:text-xl md:text-2xl">
                     <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-600" />
                     <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                      <TypewriterEffect text="kenzie portfolio" />
+                      <TypewriterEffect text="portofolio-kenzie3.vercel.app" />
                     </span>
                   </div>
                 </a>
