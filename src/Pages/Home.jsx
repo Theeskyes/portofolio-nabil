@@ -140,8 +140,8 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Eki Zulfar Rachman — Frontend Web Developer</title>
-        <meta name="description" content="Website resmi Eki Zulfar Rachman, Front-End Web Developer. Saya berfokus pada penciptaan pengalaman digital yang menarik dan selalu berupaya memberikan solusi terbaik dalam setiap proyek yang saya kerjakan." />
+        <title>Esa Kenzie Galaksi Putra — Frontend Web Developer</title>
+        <meta name="description" content="Website portofolio Esa Kenzie Galaksi Putra, siswa XI TKJ 2." />
      <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ekizr.com" />
         <meta property="og:title" content="Eki Zulfar Rachman — Frontend Web Developer" />
@@ -152,13 +152,13 @@ const Home = () => {
           {
             "@context": "https://schema.org",
             "@type": "Person",
-            "name": "Eki Zulfar Rachman",
-            "jobTitle": "Frontend Developer",
+            "name": "Esa Kenzie Galaksi Putra",
+            "jobTitle": "Network Engineer & Video Editor",
             "url": "https://ekizr.com",
             "sameAs": [
-              "https://github.com/EkiZR",
-              "https://www.linkedin.com/in/ekizr/",
-              "https://www.instagram.com/ekizr_/"
+              "https://github.com/Theeskyes",
+              "https://www.linkedin.com/in/esa-kenzie-galaksi-putra-1aa7993a9",
+              "https://www.instagram.com/__woopie"
             ]
           }
         `}</script>
