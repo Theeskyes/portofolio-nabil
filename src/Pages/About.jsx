@@ -127,7 +127,7 @@ return {
   totalProjects: 5,
   totalCertificates: 3,
   YearExperience: experience
-};
+};  
   }, []);
 
   // Optimized AOS initialization
