@@ -1,7 +1,4 @@
 import React, { useEffect, useState, useCallback } from "react";
-
-import { supabase } from "../supabase"; 
-
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
@@ -14,54 +11,134 @@ import CardProject from "../components/CardProject";
 import TechStackIcon from "../components/TechStackIcon";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Certificate from "../components/Certificate";
-import { Code, Award, Boxes } from "lucide-react";
+import { Code, Award, Boxes, X, Download, Eye } from "lucide-react";
 
+// ===================== DATA HARDCODE =====================
+
+const projects = [
+  {
+    id: 1,
+    Img: "https://img.youtube.com/vi/1oXwLh0t7tI/hqdefault.jpg",
+    Title: "Hak dan Kewajiban Sebagai Warga Sekolah",
+    Description: "Project video tentang hak dan kewajiban sebagai warga sekolah yang dibuat sebagai tugas Pendidikan Pancasila.",
+    Link: "https://youtu.be/1oXwLh0t7tI",
+    Github: "Private",
+    TechStack: [],
+    Features: [],
+  },
+  {
+    id: 2,
+    Img: "https://img.youtube.com/vi/Fp3EF5QyIsU/hqdefault.jpg",
+    Title: "Matematika Peluang Kombinasi",
+    Description: "Project matematika tentang peluang kombinasi oleh Najwa Aulia Syakila XI TKJ 2.",
+    Link: "https://youtu.be/Fp3EF5QyIsU",
+    Github: "Private",
+    TechStack: [],
+    Features: [],
+  },
+  {
+    id: 3,
+    Img: "https://img.youtube.com/vi/WuwcrPGqOdA/hqdefault.jpg",
+    Title: "Bahasa Sunda Warta - Waspada Nalika Usum Hujan",
+    Description: "Project Bahasa Sunda membuat warta dengan judul Waspada Nalika Usum Hujan oleh Najwa Aulia Syakila XI TJKT 2.",
+    Link: "https://youtu.be/WuwcrPGqOdA",
+    Github: "Private",
+    TechStack: [],
+    Features: [],
+  },
+  {
+    id: 4,
+    Img: "https://img.youtube.com/vi/wUlppy5u3CU/hqdefault.jpg",
+    Title: "Senam Irama Kelas XI TKJ 2",
+    Description: "Project PJOK senam irama kelas XI TKJ 2 SMK Negeri 1 Cikarang Utara.",
+    Link: "https://youtu.be/wUlppy5u3CU",
+    Github: "Private",
+    TechStack: [],
+    Features: [],
+  },
+  {
+    id: 5,
+    Img: "https://img.youtube.com/vi/q6ifE2MhPRU/hqdefault.jpg",
+    Title: "Observation Assignment PKWU Kelompok 5",
+    Description: "Observation Assignment untuk mata pelajaran PKWU (Project Kreatif dan Kewirausahaan) Kelompok 5.",
+    Link: "https://youtu.be/q6ifE2MhPRU",
+    Github: "Private",
+    TechStack: [],
+    Features: [],
+  },
+  {
+    id: 6,
+    Img: "https://img.youtube.com/vi/1bgfc0mvCMU/hqdefault.jpg",
+    Title: "How to Draw Simply in ibisPaint X",
+    Description: "Tutorial menggambar sederhana menggunakan aplikasi ibisPaint X.",
+    Link: "https://youtu.be/1bgfc0mvCMU",
+    Github: "Private",
+    TechStack: [],
+    Features: [],
+  },
+];
+
+const certificates = [
+  {
+    id: 1,
+    title: "Sertifikat Pelatihan Fundamental",
+    subtitle: "Associate Computer Network Technician - DTA Komdigi, 4-8 April 2026",
+    pages: [
+      "https://tuwtizpvlztsrvspzjrp.supabase.co/storage/v1/object/public/certificate-images/Document%20from%20Esa%20Kenzie%20Galaksi%20Putra%20(1)-1.png",
+      "https://tuwtizpvlztsrvspzjrp.supabase.co/storage/v1/object/public/certificate-images/Document%20from%20Esa%20Kenzie%20Galaksi%20Putra%20(1)-2.png",
+    ],
+  },
+  {
+    id: 2,
+    title: "Sertifikat Pelatihan Intermediate",
+    subtitle: "Associate Computer Network Technician - DTA Komdigi, 30 Maret - 18 April 2026",
+    pages: [
+      "https://tuwtizpvlztsrvspzjrp.supabase.co/storage/v1/object/public/certificate-images/Document%20from%20Esa%20Kenzie%20Galaksi%20Putra%20(2)-1.png",
+      "https://tuwtizpvlztsrvspzjrp.supabase.co/storage/v1/object/public/certificate-images/Document%20from%20Esa%20Kenzie%20Galaksi%20Putra%20(2)-2.png",
+    ],
+  },
+  {
+    id: 3,
+    title: "Certificate of Appreciation",
+    subtitle: "Guest Lecture 2026: IoT & Digital Transformation - President University, 16 April 2026",
+    pages: [
+      "https://tuwtizpvlztsrvspzjrp.supabase.co/storage/v1/object/public/certificate-images/Document%20from%20Esa%20Kenzie%20Galaksi%20Putra-1.png",
+    ],
+  },
+];
+
+// ===================== TECH STACKS =====================
+
+const techStacks = [
+  { icon: "html.svg", language: "HTML" },
+  { icon: "css.svg", language: "CSS" },
+  { icon: "javascript.svg", language: "JavaScript" },
+  { icon: "tailwind.svg", language: "Tailwind CSS" },
+  { icon: "reactjs.svg", language: "ReactJS" },
+  { icon: "vite.svg", language: "Vite" },
+  { icon: "nodejs.svg", language: "Node JS" },
+  { icon: "bootstrap.svg", language: "Bootstrap" },
+  { icon: "firebase.svg", language: "Firebase" },
+  { icon: "MUI.svg", language: "Material UI" },
+  { icon: "vercel.svg", language: "Vercel" },
+  { icon: "SweetAlert.svg", language: "SweetAlert2" },
+];
+
+// ===================== TOGGLE BUTTON =====================
 
 const ToggleButton = ({ onClick, isShowingMore }) => (
   <button
     onClick={onClick}
-    className="
-      px-3 py-1.5
-      text-slate-300 
-      hover:text-white 
-      text-sm 
-      font-medium 
-      transition-all 
-      duration-300 
-      ease-in-out
-      flex 
-      items-center 
-      gap-2
-      bg-white/5 
-      hover:bg-white/10
-      rounded-md
-      border 
-      border-white/10
-      hover:border-white/20
-      backdrop-blur-sm
-      group
-      relative
-      overflow-hidden
-    "
+    className="px-3 py-1.5 text-slate-300 hover:text-white text-sm font-medium transition-all duration-300 ease-in-out flex items-center gap-2 bg-white/5 hover:bg-white/10 rounded-md border border-white/10 hover:border-white/20 backdrop-blur-sm group relative overflow-hidden"
   >
     <span className="relative z-10 flex items-center gap-2">
       {isShowingMore ? "See Less" : "See More"}
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={`
-          transition-transform 
-          duration-300 
-          ${isShowingMore ? "group-hover:-translate-y-0.5" : "group-hover:translate-y-0.5"}
-        `}
+        width="16" height="16" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" strokeWidth="2"
+        strokeLinecap="round" strokeLinejoin="round"
+        className={`transition-transform duration-300 ${isShowingMore ? "group-hover:-translate-y-0.5" : "group-hover:translate-y-0.5"}`}
       >
         <polyline points={isShowingMore ? "18 15 12 9 6 15" : "6 9 12 15 18 9"}></polyline>
       </svg>
@@ -70,6 +147,7 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
   </button>
 );
 
+// ===================== TAB PANEL =====================
 
 function TabPanel({ children, value, index, ...other }) {
   return (
@@ -102,120 +180,192 @@ function a11yProps(index) {
   };
 }
 
-// techStacks tetap sama
-const techStacks = [
-  { icon: "html.svg", language: "HTML" },
-  { icon: "css.svg", language: "CSS" },
-  { icon: "javascript.svg", language: "JavaScript" },
-  { icon: "tailwind.svg", language: "Tailwind CSS" },
-  { icon: "reactjs.svg", language: "ReactJS" },
-  { icon: "vite.svg", language: "Vite" },
-  { icon: "nodejs.svg", language: "Node JS" },
-  { icon: "bootstrap.svg", language: "Bootstrap" },
-  { icon: "firebase.svg", language: "Firebase" },
-  { icon: "MUI.svg", language: "Material UI" },
-  { icon: "vercel.svg", language: "Vercel" },
-  { icon: "SweetAlert.svg", language: "SweetAlert2" },
-];
+// ===================== CERTIFICATE CARD =====================
+
+const CertificateCard = ({ certificate }) => {
+  const [open, setOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const handleDownload = (url, index) => {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${certificate.title}-halaman-${index + 1}.png`;
+    link.target = "_blank";
+    link.click();
+  };
+
+  return (
+    <>
+      {/* Card */}
+      <div
+        className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-lg shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-purple-500/20 hover:border-purple-500/40 hover:-translate-y-1"
+        onClick={() => { setOpen(true); setCurrentPage(0); }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
+        <div className="relative p-4 z-10">
+          <div className="relative overflow-hidden rounded-lg">
+            <img
+              src={certificate.pages[0]}
+              alt={certificate.title}
+              className="w-full object-cover aspect-[16/11] transform group-hover:scale-105 transition-transform duration-500"
+            />
+            {/* Overlay hover */}
+            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+              <div className="flex items-center gap-2 text-white font-medium text-sm bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/20">
+                <Eye className="w-4 h-4" />
+                Preview
+              </div>
+            </div>
+          </div>
+          <div className="mt-3 space-y-1">
+            <h3 className="text-sm font-semibold bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight">
+              {certificate.title}
+            </h3>
+            <p className="text-gray-400 text-xs leading-relaxed line-clamp-2">
+              {certificate.subtitle}
+            </p>
+            {certificate.pages.length > 1 && (
+              <p className="text-purple-400 text-xs">{certificate.pages.length} halaman</p>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Modal */}
+      {open && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ backgroundColor: "rgba(0,0,0,0.9)", backdropFilter: "blur(5px)" }}
+          onClick={() => setOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-slate-900/95 border border-white/10 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header modal */}
+            <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-slate-900/95 border-b border-white/10 backdrop-blur-sm">
+              <div>
+                <h3 className="text-white font-semibold text-base">{certificate.title}</h3>
+                <p className="text-gray-400 text-xs mt-0.5">{certificate.subtitle}</p>
+              </div>
+              <button
+                onClick={() => setOpen(false)}
+                className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all border border-white/10"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Navigasi halaman kalau lebih dari 1 */}
+            {certificate.pages.length > 1 && (
+              <div className="flex gap-2 px-4 pt-4">
+                {certificate.pages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentPage(i)}
+                    className={`px-3 py-1 rounded-lg text-xs font-medium transition-all border ${
+                      currentPage === i
+                        ? "bg-purple-600 border-purple-500 text-white"
+                        : "bg-white/5 border-white/10 text-gray-400 hover:bg-white/10 hover:text-white"
+                    }`}
+                  >
+                    Halaman {i + 1}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Gambar */}
+            <div className="p-4">
+              <img
+                src={certificate.pages[currentPage]}
+                alt={`${certificate.title} halaman ${currentPage + 1}`}
+                className="w-full rounded-xl border border-white/10"
+              />
+            </div>
+
+            {/* Tombol download */}
+            <div className="sticky bottom-0 p-4 bg-slate-900/95 border-t border-white/10 backdrop-blur-sm flex gap-3 flex-wrap">
+              {certificate.pages.length > 1 ? (
+                certificate.pages.map((url, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handleDownload(url, i)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 text-blue-300 hover:text-white border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 text-sm font-medium"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download Halaman {i + 1}
+                  </button>
+                ))
+              ) : (
+                <button
+                  onClick={() => handleDownload(certificate.pages[0], 0)}
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 text-blue-300 hover:text-white border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 text-sm font-medium"
+                >
+                  <Download className="w-4 h-4" />
+                  Download Sertifikat
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+// ===================== MAIN COMPONENT =====================
 
 export default function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = useState(0);
-  const [projects, setProjects] = useState([]);
-  const [certificates, setCertificates] = useState([]);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
   const isMobile = window.innerWidth < 768;
   const initialItems = isMobile ? 4 : 6;
 
   useEffect(() => {
-    AOS.init({
-      once: false,
-    });
+    AOS.init({ once: false });
+    // Simpan ke localStorage biar ProjectDetail.jsx tetap bisa akses
+    localStorage.setItem("projects", JSON.stringify(projects));
   }, []);
-
-
-  const fetchData = useCallback(async () => {
-    try {
-      // Mengambil data dari Supabase secara paralel
-      const [projectsResponse, certificatesResponse] = await Promise.all([
-        supabase.from("projects").select("*").order('id', { ascending: false }),
-        supabase.from("certificates").select("*").order('id', { ascending: false }), 
-      ]);
-
-      // Error handling untuk setiap request
-      if (projectsResponse.error) throw projectsResponse.error;
-      if (certificatesResponse.error) throw certificatesResponse.error;
-
-      // Supabase mengembalikan data dalam properti 'data'
-      const projectData = projectsResponse.data || [];
-      const certificateData = certificatesResponse.data || [];
-
-      setProjects(projectData);
-      setCertificates(certificateData);
-
-      // Store in localStorage (fungsionalitas ini tetap dipertahankan)
-      localStorage.setItem("projects", JSON.stringify(projectData));
-      localStorage.setItem("certificates", JSON.stringify(certificateData));
-    } catch (error) {
-      console.error("Error fetching data from Supabase:", error.message);
-    }
-  }, []);
-
-
-
-  useEffect(() => {
-    // Coba ambil dari localStorage dulu untuk laod lebih cepat
-    const cachedProjects = localStorage.getItem('projects');
-    const cachedCertificates = localStorage.getItem('certificates');
-
-    if (cachedProjects && cachedCertificates) {
-        setProjects(JSON.parse(cachedProjects));
-        setCertificates(JSON.parse(cachedCertificates));
-    }
-    
-    fetchData(); // Tetap panggil fetchData untuk sinkronisasi data terbaru
-  }, [fetchData]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   const toggleShowMore = useCallback((type) => {
-    if (type === 'projects') {
-      setShowAllProjects(prev => !prev);
+    if (type === "projects") {
+      setShowAllProjects((prev) => !prev);
     } else {
-      setShowAllCertificates(prev => !prev);
+      setShowAllCertificates((prev) => !prev);
     }
   }, []);
 
   const displayedProjects = showAllProjects ? projects : projects.slice(0, initialItems);
   const displayedCertificates = showAllCertificates ? certificates : certificates.slice(0, initialItems);
 
-  // Sisa dari komponen (return statement) tidak ada perubahan
   return (
     <div className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Portofolio">
-      {/* Header section - unchanged */}
       <div className="text-center pb-10" data-aos="fade-up" data-aos-duration="1000">
         <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#0ea5e9] to-[#2563eb]">
           <span style={{
-            color: '#0ea5e9',
-            backgroundImage: 'linear-gradient(45deg, #0ea5e9 10%, #2563eb 93%)',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
+            color: "#0ea5e9",
+            backgroundImage: "linear-gradient(45deg, #0ea5e9 10%, #2563eb 93%)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            WebkitTextFillColor: "transparent",
           }}>
             Portfolio Showcase
           </span>
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2">
-          Explore my journey through projects, certifications, and technical expertise. 
+          Explore my journey through projects, certifications, and technical expertise.
           Each section represents a milestone in my continuous learning path.
         </p>
       </div>
 
       <Box sx={{ width: "100%" }}>
-        {/* AppBar and Tabs section - unchanged */}
         <AppBar
           position="static"
           elevation={0}
@@ -228,10 +378,7 @@ export default function FullWidthTabs() {
             "&::before": {
               content: '""',
               position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
+              top: 0, left: 0, right: 0, bottom: 0,
               background: "linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(59, 130, 246, 0.03) 100%)",
               backdropFilter: "blur(10px)",
               zIndex: 0,
@@ -239,7 +386,6 @@ export default function FullWidthTabs() {
           }}
           className="md:px-4"
         >
-          {/* Tabs remain unchanged */}
           <Tabs
             value={value}
             onChange={handleChange}
@@ -262,42 +408,20 @@ export default function FullWidthTabs() {
                   color: "#ffffff",
                   backgroundColor: "rgba(139, 92, 246, 0.1)",
                   transform: "translateY(-2px)",
-                  "& .lucide": {
-                    transform: "scale(1.1) rotate(5deg)",
-                  },
                 },
                 "&.Mui-selected": {
                   color: "#fff",
                   background: "linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2))",
                   boxShadow: "0 4px 15px -3px rgba(139, 92, 246, 0.2)",
-                  "& .lucide": {
-                    color: "#a78bfa",
-                  },
                 },
               },
-              "& .MuiTabs-indicator": {
-                height: 0,
-              },
-              "& .MuiTabs-flexContainer": {
-                gap: "8px",
-              },
+              "& .MuiTabs-indicator": { height: 0 },
+              "& .MuiTabs-flexContainer": { gap: "8px" },
             }}
           >
-            <Tab
-              icon={<Code className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Projects"
-              {...a11yProps(0)}
-            />
-            <Tab
-              icon={<Award className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Certificates"
-              {...a11yProps(1)}
-            />
-            <Tab
-              icon={<Boxes className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Tech Stack"
-              {...a11yProps(2)}
-            />
+            <Tab icon={<Code className="mb-2 w-5 h-5 transition-all duration-300" />} label="Projects" {...a11yProps(0)} />
+            <Tab icon={<Award className="mb-2 w-5 h-5 transition-all duration-300" />} label="Certificates" {...a11yProps(1)} />
+            <Tab icon={<Boxes className="mb-2 w-5 h-5 transition-all duration-300" />} label="Tech Stack" {...a11yProps(2)} />
           </Tabs>
         </AppBar>
 
@@ -306,12 +430,13 @@ export default function FullWidthTabs() {
           index={value}
           onChangeIndex={setValue}
         >
+          {/* TAB PROJECTS */}
           <TabPanel value={value} index={0} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-5">
                 {displayedProjects.map((project, index) => (
                   <div
-                    key={project.id || index}
+                    key={project.id}
                     data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
                     data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
                   >
@@ -328,38 +453,34 @@ export default function FullWidthTabs() {
             </div>
             {projects.length > initialItems && (
               <div className="mt-6 w-full flex justify-start">
-                <ToggleButton
-                  onClick={() => toggleShowMore('projects')}
-                  isShowingMore={showAllProjects}
-                />
+                <ToggleButton onClick={() => toggleShowMore("projects")} isShowingMore={showAllProjects} />
               </div>
             )}
           </TabPanel>
 
+          {/* TAB CERTIFICATES */}
           <TabPanel value={value} index={1} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
                 {displayedCertificates.map((certificate, index) => (
                   <div
-                    key={certificate.id || index}
+                    key={certificate.id}
                     data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
                     data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
                   >
-                    <Certificate ImgSertif={certificate.Img} />
+                    <CertificateCard certificate={certificate} />
                   </div>
                 ))}
               </div>
             </div>
             {certificates.length > initialItems && (
               <div className="mt-6 w-full flex justify-start">
-                <ToggleButton
-                  onClick={() => toggleShowMore('certificates')}
-                  isShowingMore={showAllCertificates}
-                />
+                <ToggleButton onClick={() => toggleShowMore("certificates")} isShowingMore={showAllCertificates} />
               </div>
             )}
           </TabPanel>
 
+          {/* TAB TECH STACK */}
           <TabPanel value={value} index={2} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-8 gap-5">
