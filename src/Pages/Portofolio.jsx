@@ -13,65 +13,53 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Code, Award, Boxes, X, Download, Eye } from "lucide-react";
 
-// ===================== DATA HARDCODE =====================
-
 const projects = [
   {
     id: 1,
-    Img: "https://img.youtube.com/vi/1oXwLh0t7tI/hqdefault.jpg",
-    Title: "Hak dan Kewajiban Sebagai Warga Sekolah",
-    Description: "Project video tentang hak dan kewajiban sebagai warga sekolah yang dibuat sebagai tugas Pendidikan Pancasila.",
-    Link: "https://youtu.be/1oXwLh0t7tI",
+    Img: "https://img.youtube.com/vi/vgJq6qONv-4/hqdefault.jpg",
+    Title: "Sejarah Penculikan di Rengasdengklok",
+    Description: "Project sejarah tentang peristiwa penculikan di Rengasdengklok.",
+    Link: "https://youtu.be/vgJq6qONv-4?si=0N6hB5yP1FBlekd0",
     Github: "Private",
     TechStack: [],
     Features: [],
   },
   {
     id: 2,
-    Img: "https://img.youtube.com/vi/Fp3EF5QyIsU/hqdefault.jpg",
+    Img: "https://img.youtube.com/vi/6hqtq05A9Ac/hqdefault.jpg",
     Title: "Matematika Peluang Kombinasi",
-    Description: "Project matematika tentang peluang kombinasi oleh Najwa Aulia Syakila XI TKJ 2.",
-    Link: "https://youtu.be/Fp3EF5QyIsU",
+    Description: "Project matematika tentang peluang kombinasi.",
+    Link: "https://youtu.be/6hqtq05A9Ac?si=LO4uJ331D9NZvGRp",
     Github: "Private",
     TechStack: [],
     Features: [],
   },
   {
     id: 3,
-    Img: "https://img.youtube.com/vi/WuwcrPGqOdA/hqdefault.jpg",
-    Title: "Bahasa Sunda Warta - Waspada Nalika Usum Hujan",
-    Description: "Project Bahasa Sunda membuat warta dengan judul Waspada Nalika Usum Hujan oleh Najwa Aulia Syakila XI TJKT 2.",
-    Link: "https://youtu.be/WuwcrPGqOdA",
+    Img: "https://img.youtube.com/vi/ZnRdT0wYIoI/hqdefault.jpg",
+    Title: "Hak dan Kewajiban Sebagai Warga Sekolah",
+    Description: "Project Pendidikan Pancasila tentang hak dan kewajiban sebagai warga sekolah.",
+    Link: "https://youtu.be/ZnRdT0wYIoI?si=Qupzbke3JfE1mMVl",
     Github: "Private",
     TechStack: [],
     Features: [],
   },
   {
     id: 4,
-    Img: "https://img.youtube.com/vi/wUlppy5u3CU/hqdefault.jpg",
-    Title: "Senam Irama Kelas XI TKJ 2",
-    Description: "Project PJOK senam irama kelas XI TKJ 2 SMK Negeri 1 Cikarang Utara.",
-    Link: "https://youtu.be/wUlppy5u3CU",
+    Img: "https://img.youtube.com/vi/f7uKq_xRda4/hqdefault.jpg",
+    Title: "Last Result Sejarah Nyanyi",
+    Description: "Project sejarah dengan format lagu.",
+    Link: "https://youtu.be/f7uKq_xRda4?si=QW5yfcotohyyFrDr",
     Github: "Private",
     TechStack: [],
     Features: [],
   },
   {
     id: 5,
-    Img: "https://img.youtube.com/vi/q6ifE2MhPRU/hqdefault.jpg",
-    Title: "Observation Assignment PKWU Kelompok 5",
-    Description: "Observation Assignment untuk mata pelajaran PKWU (Project Kreatif dan Kewirausahaan) Kelompok 5.",
-    Link: "https://youtu.be/q6ifE2MhPRU",
-    Github: "Private",
-    TechStack: [],
-    Features: [],
-  },
-  {
-    id: 6,
-    Img: "https://img.youtube.com/vi/1bgfc0mvCMU/hqdefault.jpg",
-    Title: "How to Draw Simply in ibisPaint X",
-    Description: "Tutorial menggambar sederhana menggunakan aplikasi ibisPaint X.",
-    Link: "https://youtu.be/1bgfc0mvCMU",
+    Img: "https://img.youtube.com/vi/-lQmptVMiIQ/hqdefault.jpg",
+    Title: "Drama BK Tentang Bullying",
+    Description: "Tugas drama Bimbingan Konseling tentang isu bullying.",
+    Link: "https://youtu.be/-lQmptVMiIQ?si=6iKmlLNdfK_qCWiS",
     Github: "Private",
     TechStack: [],
     Features: [],
@@ -107,8 +95,6 @@ const certificates = [
   },
 ];
 
-// ===================== TECH STACKS =====================
-
 const techStacks = [
   { icon: "html.svg", language: "HTML" },
   { icon: "css.svg", language: "CSS" },
@@ -124,8 +110,6 @@ const techStacks = [
   { icon: "SweetAlert.svg", language: "SweetAlert2" },
 ];
 
-// ===================== TOGGLE BUTTON =====================
-
 const ToggleButton = ({ onClick, isShowingMore }) => (
   <button
     onClick={onClick}
@@ -133,13 +117,8 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
   >
     <span className="relative z-10 flex items-center gap-2">
       {isShowingMore ? "See Less" : "See More"}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16" height="16" viewBox="0 0 24 24"
-        fill="none" stroke="currentColor" strokeWidth="2"
-        strokeLinecap="round" strokeLinejoin="round"
-        className={`transition-transform duration-300 ${isShowingMore ? "group-hover:-translate-y-0.5" : "group-hover:translate-y-0.5"}`}
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+        className={`transition-transform duration-300 ${isShowingMore ? "group-hover:-translate-y-0.5" : "group-hover:translate-y-0.5"}`}>
         <polyline points={isShowingMore ? "18 15 12 9 6 15" : "6 9 12 15 18 9"}></polyline>
       </svg>
     </span>
@@ -147,17 +126,9 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
   </button>
 );
 
-// ===================== TAB PANEL =====================
-
 function TabPanel({ children, value, index, ...other }) {
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
+    <div role="tabpanel" hidden={value !== index} id={`full-width-tabpanel-${index}`} aria-labelledby={`full-width-tab-${index}`} {...other}>
       {value === index && (
         <Box sx={{ p: { xs: 1, sm: 3 } }}>
           <Typography component="div">{children}</Typography>
@@ -180,11 +151,50 @@ function a11yProps(index) {
   };
 }
 
-// ===================== CERTIFICATE CARD =====================
+const CertificateCard = ({ certificate, onOpen }) => {
+  return (
+    <div
+      className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-lg shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-purple-500/20 hover:border-purple-500/40 hover:-translate-y-1"
+      onClick={() => onOpen(certificate)}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
+      <div className="relative p-4 z-10">
+        <div className="relative overflow-hidden rounded-lg">
+          <img
+            src={certificate.pages[0]}
+            alt={certificate.title}
+            className="w-full object-cover aspect-[16/11] transform group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div className="flex items-center gap-2 text-white font-medium text-sm bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/20">
+              <Eye className="w-4 h-4" />
+              Preview
+            </div>
+          </div>
+        </div>
+        <div className="mt-3 space-y-1">
+          <h3 className="text-sm font-semibold bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight">
+            {certificate.title}
+          </h3>
+          <p className="text-gray-400 text-xs leading-relaxed line-clamp-2">{certificate.subtitle}</p>
+          {certificate.pages.length > 1 && (
+            <p className="text-purple-400 text-xs">{certificate.pages.length} halaman</p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-const CertificateCard = ({ certificate }) => {
-  const [open, setOpen] = useState(false);
+const CertificateModal = ({ certificate, onClose }) => {
   const [currentPage, setCurrentPage] = useState(0);
+
+  useEffect(() => {
+    if (!certificate) return;
+    setCurrentPage(0);
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = "unset"; };
+  }, [certificate]);
 
   const handleDownload = (url, index) => {
     const link = document.createElement("a");
@@ -194,139 +204,96 @@ const CertificateCard = ({ certificate }) => {
     link.click();
   };
 
+  if (!certificate) return null;
+
   return (
-    <>
-      {/* Card */}
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+      style={{ backgroundColor: "rgba(0,0,0,0.9)", backdropFilter: "blur(5px)" }}
+      onClick={onClose}
+    >
       <div
-        className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-lg shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-purple-500/20 hover:border-purple-500/40 hover:-translate-y-1"
-        onClick={() => { setOpen(true); setCurrentPage(0); }}
+        className="relative w-full max-w-2xl rounded-2xl bg-slate-900 border border-white/10 shadow-2xl flex flex-col"
+        style={{ maxHeight: "90vh" }}
+        onClick={(e) => e.stopPropagation()}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
-        <div className="relative p-4 z-10">
-          <div className="relative overflow-hidden rounded-lg">
-            <img
-              src={certificate.pages[0]}
-              alt={certificate.title}
-              className="w-full object-cover aspect-[16/11] transform group-hover:scale-105 transition-transform duration-500"
-            />
-            {/* Overlay hover */}
-            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-              <div className="flex items-center gap-2 text-white font-medium text-sm bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/20">
-                <Eye className="w-4 h-4" />
-                Preview
-              </div>
-            </div>
+        <div className="flex items-center justify-between p-4 border-b border-white/10 flex-shrink-0">
+          <div>
+            <h3 className="text-white font-semibold text-base">{certificate.title}</h3>
+            <p className="text-gray-400 text-xs mt-0.5">{certificate.subtitle}</p>
           </div>
-          <div className="mt-3 space-y-1">
-            <h3 className="text-sm font-semibold bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight">
-              {certificate.title}
-            </h3>
-            <p className="text-gray-400 text-xs leading-relaxed line-clamp-2">
-              {certificate.subtitle}
-            </p>
-            {certificate.pages.length > 1 && (
-              <p className="text-purple-400 text-xs">{certificate.pages.length} halaman</p>
-            )}
+          <button
+            onClick={onClose}
+            className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all border border-white/10"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {certificate.pages.length > 1 && (
+          <div className="flex gap-2 px-4 pt-3 flex-shrink-0">
+            {certificate.pages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentPage(i)}
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition-all border ${
+                  currentPage === i
+                    ? "bg-purple-600 border-purple-500 text-white"
+                    : "bg-white/5 border-white/10 text-gray-400 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                Halaman {i + 1}
+              </button>
+            ))}
           </div>
+        )}
+
+        <div className="overflow-y-auto flex-1 p-4">
+          <img
+            src={certificate.pages[currentPage]}
+            alt={`${certificate.title} halaman ${currentPage + 1}`}
+            className="w-full rounded-xl border border-white/10"
+          />
+        </div>
+
+        <div className="p-4 border-t border-white/10 flex gap-3 flex-wrap flex-shrink-0">
+          {certificate.pages.length > 1 ? (
+            certificate.pages.map((url, i) => (
+              <button
+                key={i}
+                onClick={() => handleDownload(url, i)}
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 text-blue-300 hover:text-white border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 text-sm font-medium"
+              >
+                <Download className="w-4 h-4" />
+                Download Halaman {i + 1}
+              </button>
+            ))
+          ) : (
+            <button
+              onClick={() => handleDownload(certificate.pages[0], 0)}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 text-blue-300 hover:text-white border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 text-sm font-medium"
+            >
+              <Download className="w-4 h-4" />
+              Download Sertifikat
+            </button>
+          )}
         </div>
       </div>
-
-      {/* Modal */}
-      {open && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ backgroundColor: "rgba(0,0,0,0.9)", backdropFilter: "blur(5px)" }}
-          onClick={() => setOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-slate-900/95 border border-white/10 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header modal */}
-            <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-slate-900/95 border-b border-white/10 backdrop-blur-sm">
-              <div>
-                <h3 className="text-white font-semibold text-base">{certificate.title}</h3>
-                <p className="text-gray-400 text-xs mt-0.5">{certificate.subtitle}</p>
-              </div>
-              <button
-                onClick={() => setOpen(false)}
-                className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all border border-white/10"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Navigasi halaman kalau lebih dari 1 */}
-            {certificate.pages.length > 1 && (
-              <div className="flex gap-2 px-4 pt-4">
-                {certificate.pages.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentPage(i)}
-                    className={`px-3 py-1 rounded-lg text-xs font-medium transition-all border ${
-                      currentPage === i
-                        ? "bg-purple-600 border-purple-500 text-white"
-                        : "bg-white/5 border-white/10 text-gray-400 hover:bg-white/10 hover:text-white"
-                    }`}
-                  >
-                    Halaman {i + 1}
-                  </button>
-                ))}
-              </div>
-            )}
-
-            {/* Gambar */}
-            <div className="p-4">
-              <img
-                src={certificate.pages[currentPage]}
-                alt={`${certificate.title} halaman ${currentPage + 1}`}
-                className="w-full rounded-xl border border-white/10"
-              />
-            </div>
-
-            {/* Tombol download */}
-            <div className="sticky bottom-0 p-4 bg-slate-900/95 border-t border-white/10 backdrop-blur-sm flex gap-3 flex-wrap">
-              {certificate.pages.length > 1 ? (
-                certificate.pages.map((url, i) => (
-                  <button
-                    key={i}
-                    onClick={() => handleDownload(url, i)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 text-blue-300 hover:text-white border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 text-sm font-medium"
-                  >
-                    <Download className="w-4 h-4" />
-                    Download Halaman {i + 1}
-                  </button>
-                ))
-              ) : (
-                <button
-                  onClick={() => handleDownload(certificate.pages[0], 0)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 text-blue-300 hover:text-white border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 text-sm font-medium"
-                >
-                  <Download className="w-4 h-4" />
-                  Download Sertifikat
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-    </>
+    </div>
   );
 };
-
-// ===================== MAIN COMPONENT =====================
 
 export default function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = useState(0);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
   const isMobile = window.innerWidth < 768;
   const initialItems = isMobile ? 4 : 6;
 
   useEffect(() => {
     AOS.init({ once: false });
-    // Simpan ke localStorage biar ProjectDetail.jsx tetap bisa akses
     localStorage.setItem("projects", JSON.stringify(projects));
   }, []);
 
@@ -430,7 +397,6 @@ export default function FullWidthTabs() {
           index={value}
           onChangeIndex={setValue}
         >
-          {/* TAB PROJECTS */}
           <TabPanel value={value} index={0} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-5">
@@ -458,7 +424,6 @@ export default function FullWidthTabs() {
             )}
           </TabPanel>
 
-          {/* TAB CERTIFICATES */}
           <TabPanel value={value} index={1} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
@@ -468,7 +433,10 @@ export default function FullWidthTabs() {
                     data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
                     data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
                   >
-                    <CertificateCard certificate={certificate} />
+                    <CertificateCard
+                      certificate={certificate}
+                      onOpen={setSelectedCertificate}
+                    />
                   </div>
                 ))}
               </div>
@@ -478,9 +446,12 @@ export default function FullWidthTabs() {
                 <ToggleButton onClick={() => toggleShowMore("certificates")} isShowingMore={showAllCertificates} />
               </div>
             )}
+            <CertificateModal
+              certificate={selectedCertificate}
+              onClose={() => setSelectedCertificate(null)}
+            />
           </TabPanel>
 
-          {/* TAB TECH STACK */}
           <TabPanel value={value} index={2} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-8 gap-5">
