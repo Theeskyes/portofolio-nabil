@@ -163,9 +163,9 @@ const CertificateCard = ({ certificate, onOpen }) => {
           <img
             src={certificate.pages[0]}
             alt={certificate.title}
-            className="w-full object-cover aspect-[16/11] transform group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+            className="w-full object-cover aspect-[16/11] transform group-hover:scale-105 transition-transform duration-500"
           />
-          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
             <div className="flex items-center gap-2 text-white font-medium text-sm bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/20">
               <Eye className="w-4 h-4" />
               Preview
