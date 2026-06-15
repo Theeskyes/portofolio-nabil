@@ -155,7 +155,7 @@ const CertificateCard = ({ certificate, onOpen }) => {
   return (
     <div
       className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-lg shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-purple-500/20 hover:border-purple-500/40 hover:-translate-y-1"
-      onPointerUp={() => onOpen(certificate)}
+      onClick={(e) => { e.stopPropagation(); onOpen(certificate); }}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
       <div className="relative p-4 z-10">
