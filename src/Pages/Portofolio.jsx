@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
 import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
@@ -126,9 +125,9 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
   </button>
 );
 
-function TabPanel({ children, value, index, ...other }) {
+function TabPanel({ children, value, index }) {
   return (
-    <div role="tabpanel" hidden={value !== index} id={`full-width-tabpanel-${index}`} aria-labelledby={`full-width-tab-${index}`} {...other}>
+    <div hidden={value !== index}>
       {value === index && (
         <Box sx={{ p: { xs: 1, sm: 3 } }}>
           <Typography component="div">{children}</Typography>
@@ -155,7 +154,7 @@ const CertificateCard = ({ certificate, onOpen }) => {
   return (
     <div
       className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-lg shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-purple-500/20 hover:border-purple-500/40 hover:-translate-y-1"
-      onClick={(e) => { e.stopPropagation(); onOpen(certificate); }}
+      onClick={() => onOpen(certificate)}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
       <div className="relative p-4 z-10">
@@ -222,10 +221,7 @@ const CertificateModal = ({ certificate, onClose }) => {
             <h3 className="text-white font-semibold text-base">{certificate.title}</h3>
             <p className="text-gray-400 text-xs mt-0.5">{certificate.subtitle}</p>
           </div>
-          <button
-            onClick={onClose}
-            className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all border border-white/10"
-          >
+          <button onClick={onClose} className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all border border-white/10">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -259,20 +255,15 @@ const CertificateModal = ({ certificate, onClose }) => {
         <div className="p-4 border-t border-white/10 flex gap-3 flex-wrap flex-shrink-0">
           {certificate.pages.length > 1 ? (
             certificate.pages.map((url, i) => (
-              <button
-                key={i}
-                onClick={() => handleDownload(url, i)}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 text-blue-300 hover:text-white border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 text-sm font-medium"
-              >
+              <button key={i} onClick={() => handleDownload(url, i)}
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 text-blue-300 hover:text-white border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 text-sm font-medium">
                 <Download className="w-4 h-4" />
                 Download Halaman {i + 1}
               </button>
             ))
           ) : (
-            <button
-              onClick={() => handleDownload(certificate.pages[0], 0)}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 text-blue-300 hover:text-white border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 text-sm font-medium"
-            >
+            <button onClick={() => handleDownload(certificate.pages[0], 0)}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/40 hover:to-purple-600/40 text-blue-300 hover:text-white border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 text-sm font-medium">
               <Download className="w-4 h-4" />
               Download Sertifikat
             </button>
@@ -333,9 +324,7 @@ export default function FullWidthTabs() {
       </div>
 
       <Box sx={{ width: "100%" }}>
-        <AppBar
-          position="static"
-          elevation={0}
+        <AppBar position="static" elevation={0}
           sx={{
             bgcolor: "transparent",
             border: "1px solid rgba(255, 255, 255, 0.1)",
@@ -353,12 +342,7 @@ export default function FullWidthTabs() {
           }}
           className="md:px-4"
         >
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            textColor="secondary"
-            indicatorColor="secondary"
-            variant="fullWidth"
+          <Tabs value={value} onChange={handleChange} textColor="secondary" indicatorColor="secondary" variant="fullWidth"
             sx={{
               minHeight: "70px",
               "& .MuiTab-root": {
@@ -371,16 +355,8 @@ export default function FullWidthTabs() {
                 zIndex: 1,
                 margin: "8px",
                 borderRadius: "12px",
-                "&:hover": {
-                  color: "#ffffff",
-                  backgroundColor: "rgba(139, 92, 246, 0.1)",
-                  transform: "translateY(-2px)",
-                },
-                "&.Mui-selected": {
-                  color: "#fff",
-                  background: "linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2))",
-                  boxShadow: "0 4px 15px -3px rgba(139, 92, 246, 0.2)",
-                },
+                "&:hover": { color: "#ffffff", backgroundColor: "rgba(139, 92, 246, 0.1)", transform: "translateY(-2px)" },
+                "&.Mui-selected": { color: "#fff", background: "linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2))", boxShadow: "0 4px 15px -3px rgba(139, 92, 246, 0.2)" },
               },
               "& .MuiTabs-indicator": { height: 0 },
               "& .MuiTabs-flexContainer": { gap: "8px" },
@@ -392,85 +368,58 @@ export default function FullWidthTabs() {
           </Tabs>
         </AppBar>
 
-        <SwipeableViews
-          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-          index={value}
-          onChangeIndex={setValue}
-          disableLazyLoading
-          hysteresis={0.6}
-          threshold={10}
-        >
-          <TabPanel value={value} index={0} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {displayedProjects.map((project, index) => (
-                  <div
-                    key={project.id}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                  >
-                    <CardProject
-                      Img={project.Img}
-                      Title={project.Title}
-                      Description={project.Description}
-                      Link={project.Link}
-                      id={project.id}
-                    />
-                  </div>
-                ))}
-              </div>
+        <TabPanel value={value} index={0}>
+          <div className="container mx-auto flex justify-center items-center overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {displayedProjects.map((project, index) => (
+                <div key={project.id}
+                  data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
+                  data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}>
+                  <CardProject Img={project.Img} Title={project.Title} Description={project.Description} Link={project.Link} id={project.id} />
+                </div>
+              ))}
             </div>
-            {projects.length > initialItems && (
-              <div className="mt-6 w-full flex justify-start">
-                <ToggleButton onClick={() => toggleShowMore("projects")} isShowingMore={showAllProjects} />
-              </div>
-            )}
-          </TabPanel>
+          </div>
+          {projects.length > initialItems && (
+            <div className="mt-6 w-full flex justify-start">
+              <ToggleButton onClick={() => toggleShowMore("projects")} isShowingMore={showAllProjects} />
+            </div>
+          )}
+        </TabPanel>
 
-          <TabPanel value={value} index={1} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
-                {displayedCertificates.map((certificate, index) => (
-                  <div
-                    key={certificate.id}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                  >
-                    <CertificateCard
-                      certificate={certificate}
-                      onOpen={setSelectedCertificate}
-                    />
-                  </div>
-                ))}
-              </div>
+        <TabPanel value={value} index={1}>
+          <div className="container mx-auto flex justify-center items-center overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
+              {displayedCertificates.map((certificate, index) => (
+                <div key={certificate.id}
+                  data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
+                  data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}>
+                  <CertificateCard certificate={certificate} onOpen={setSelectedCertificate} />
+                </div>
+              ))}
             </div>
-            {certificates.length > initialItems && (
-              <div className="mt-6 w-full flex justify-start">
-                <ToggleButton onClick={() => toggleShowMore("certificates")} isShowingMore={showAllCertificates} />
-              </div>
-            )}
-            <CertificateModal
-              certificate={selectedCertificate}
-              onClose={() => setSelectedCertificate(null)}
-            />
-          </TabPanel>
+          </div>
+          {certificates.length > initialItems && (
+            <div className="mt-6 w-full flex justify-start">
+              <ToggleButton onClick={() => toggleShowMore("certificates")} isShowingMore={showAllCertificates} />
+            </div>
+          )}
+          <CertificateModal certificate={selectedCertificate} onClose={() => setSelectedCertificate(null)} />
+        </TabPanel>
 
-          <TabPanel value={value} index={2} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-8 gap-5">
-                {techStacks.map((stack, index) => (
-                  <div
-                    key={index}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                  >
-                    <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
-                  </div>
-                ))}
-              </div>
+        <TabPanel value={value} index={2}>
+          <div className="container mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-8 gap-5">
+              {techStacks.map((stack, index) => (
+                <div key={index}
+                  data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
+                  data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}>
+                  <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
+                </div>
+              ))}
             </div>
-          </TabPanel>
-        </SwipeableViews>
+          </div>
+        </TabPanel>
       </Box>
     </div>
   );
