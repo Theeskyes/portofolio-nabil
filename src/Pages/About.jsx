@@ -123,11 +123,11 @@ const AboutPage = () => {
     const experience = today.getFullYear() - startDate.getFullYear() -
       (today < new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate()) ? 1 : 0);
 
-    return {
-      totalProjects: storedProjects.length,
-      totalCertificates: storedCertificates.length,
-      YearExperience: experience
-    };
+return {
+  totalProjects: 5,
+  totalCertificates: 3,
+  YearExperience: experience
+};
   }, []);
 
   // Optimized AOS initialization
