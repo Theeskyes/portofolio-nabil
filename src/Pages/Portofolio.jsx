@@ -207,12 +207,12 @@ const CertificateModal = ({ certificate, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 animate-fadeIn"
       style={{ backgroundColor: "rgba(0,0,0,0.9)", backdropFilter: "blur(5px)" }}
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl rounded-2xl bg-slate-900 border border-white/10 shadow-2xl flex flex-col"
+        className="relative w-full max-w-2xl rounded-2xl bg-slate-900 border border-white/10 shadow-2xl flex flex-col animate-scaleIn"
         style={{ maxHeight: "90vh" }}
         onClick={(e) => e.stopPropagation()}
       >
