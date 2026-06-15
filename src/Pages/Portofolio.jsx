@@ -396,6 +396,9 @@ export default function FullWidthTabs() {
           axis={theme.direction === "rtl" ? "x-reverse" : "x"}
           index={value}
           onChangeIndex={setValue}
+          disableLazyLoading
+          hysteresis={0.6}
+          threshold={10}
         >
           <TabPanel value={value} index={0} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
