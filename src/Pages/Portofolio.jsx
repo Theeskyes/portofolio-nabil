@@ -286,6 +286,8 @@ export default function FullWidthTabs() {
   useEffect(() => {
     AOS.init({ once: false });
     localStorage.setItem("projects", JSON.stringify(projects));
+    localStorage.setItem("certificates", JSON.stringify
+      (certificates));
   }, []);
 
   const handleChange = (event, newValue) => {
