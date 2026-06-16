@@ -140,7 +140,7 @@ const ContactPage = () => {
         className="h-auto py-10 flex items-center justify-center 2xl:pr-[3.1%] lg:pr-[3.8%]  md:px-0"
         id="Contact"
       >
-        className="container px-[1%] grid grid-cols-1 gap-12 max-w-2xl mx-auto"
+        className="container px-[1%] grid grid-cols-1 gap-12"
           <div
         
             className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-500 hover:shadow-[#0ea5e9]/10"
