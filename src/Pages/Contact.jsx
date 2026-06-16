@@ -223,7 +223,8 @@ const ContactPage = () => {
               </button>
             </form>
 
-            <div className="mt-10 pt-6 border-t border-white/10 flex justify-center space-x-6">
+            <div className="mt-10 pt-6 border-t border-white/10 flex justify-center">
+             <div className="w-full max-w-md"></div>
               <SocialLinks />
             </div>
           </div>
