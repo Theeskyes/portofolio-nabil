@@ -107,7 +107,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="px-[2%] sm:px-[2%] lg:px-[2%]">
+    <div className="px-[5%] sm:px-[5%] lg:px-[10%]">
       <div className="text-center lg:mt-[5%] mt-10 mb-2 sm:px-0 px-[5%]">
         <h2
           data-aos="fade-down"
@@ -143,7 +143,7 @@ const ContactPage = () => {
         className="w-full grid grid-cols-1 gap-12"
           <div
         
-            className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-500 hover:shadow-[#0ea5e9]/10 w-full max-w-5xl mx-auto"
+            className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-500 hover:shadow-[#0ea5e9]/10 w-full"
           >
             <div className="flex justify-between items-start mb-8">
               <div>
