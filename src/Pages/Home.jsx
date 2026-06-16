@@ -21,16 +21,16 @@ const StatusBadge = memo(() => (
 const MainTitle = memo(() => (
   <div className="space-y-2" data-aos="fade-up" data-aos-delay="600">
     <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-5xl font-bold tracking-tight">
-      <span className="relative inline-block">
+      <span className="relative inline">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-          Ketua Paskibra SMKN 1 
+          Ketua Paskibra SMKN 1{" "}
         </span>
       </span>
-      <span className="relative inline-block mt-2">
+      <span className="relative inline">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] bg-clip-text text-transparent">
-          Cikarang Utara    
+          Cikarang Utara
         </span>
       </span>
     </h1>
