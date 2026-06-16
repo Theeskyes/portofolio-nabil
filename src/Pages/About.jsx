@@ -1,5 +1,5 @@
 import React, { useEffect, memo, useMemo } from "react"
-import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles, UserCheck } from "lucide-react"
+import { Code, Award, Globe, ArrowUpRight, Sparkles, UserCheck } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -209,7 +209,7 @@ return {
                 data-aos-duration="1300"
                 itemProp="name"
               >
-                Esa Kenzie Galaksi Putra
+                Muhammad Nabil Akhram
               </span>
             </h2>
             
@@ -218,7 +218,7 @@ return {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-        Saya adalah siswa XI TKJ 2 yang passionate dalam editing video, jaringan komputer, dan desain grafis. Saya selalu berupaya memberikan hasil terbaik dalam setiap project yang saya kerjakan.
+        Nama saya Muhammad Nabil Akhram. Saya adalah siswa aktif SMKN 1 Cikarang Utara yang menjabat sebagai Ketua Paskibra dan Duta Siswa. Saya percaya kepemimpinan dan kedisiplinan adalah kunci untuk berkontribusi lebih luas bagi masyarakat. Di luar kegiatan sekolah, saya juga memiliki hobi fitness yang saya cintai.
                   </p>
 
                {/* Quote Section */}
@@ -244,27 +244,16 @@ return {
       </div>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="https://drive.google.com/file/d/1Vb-3Gse-ATsZ1UZ6l8liJD-VgcP8Hz71/view?usp=drive_link" className="w-full lg:w-auto">
-              <button 
-                data-aos="fade-up"
-                data-aos-duration="800"
-                className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl "
-              >
-                <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download CV
-              </button>
-              </a>
-              <a href="#Portofolio" className="w-full lg:w-auto">
-              <button 
-                data-aos="fade-up"
-                data-aos-duration="1000"
-                className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg border border-[#2563eb]/50 text-[#2563eb] font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 hover:bg-[#2563eb]/10 "
-              >
-                <Code className="w-4 h-4 sm:w-5 sm:h-5" /> View Projects
-              </button>
-              </a>
-            </div>
-          </div>
-
+  <a href="#Portofolio" className="w-full lg:w-auto">
+    <button 
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg border border-[#2563eb]/50 text-[#2563eb] font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 hover:bg-[#2563eb]/10"
+    >
+      <Code className="w-4 h-4 sm:w-5 sm:h-5" /> Lihat Proyek
+    </button>
+  </a>
+</div>
           <ProfileImage />
         </div>
 

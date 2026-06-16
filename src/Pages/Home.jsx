@@ -78,8 +78,6 @@ const PAUSE_DURATION = 2000;
 const WORDS = ["XI TKJ 2 Student", "Ketua Paskibra", "Duta Siswa"];
 const TECH_STACK = ["Canva"];
 const SOCIAL_LINKS = [
-  { icon: Github, link: "https://github.com/Theeskyes", label: "GitHub Profile" },
-  { icon: Linkedin, link: "https://www.linkedin.com/in/esa-kenzie-galaksi-putra-1aa7993a9", label: "LinkedIn Profile" },
   { icon: Instagram, link: "https://www.instagram.com/naabill11", label: "Instagram Profile" }
 ];
 
@@ -187,7 +185,7 @@ const Home = () => {
                   <p className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light"
                     data-aos="fade-up"
                     data-aos-delay="1000">
-                    Siswa SMKN 1 Cikarang Utara yang passionate dalam networking, editing video, dan desain grafis. Selalu berupaya memberikan hasil terbaik dalam setiap project.
+                    Siswa aktif SMKN 1 Cikarang Utara, Ketua Paskibra, dan Duta Siswa yang passionate dalam kepemimpinan dan pengembangan diri.
                   </p>
 
                   {/* Tech Stack */}
