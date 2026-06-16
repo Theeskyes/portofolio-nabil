@@ -24,7 +24,7 @@ const MainTitle = memo(() => (
       <span className="relative inline">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-          Ketua Paskibra SMKN 1{" "}
+          Ketua Paskibra {" "}
         </span>
       </span>
       <span className="relative inline">
@@ -76,7 +76,7 @@ const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
 const WORDS = ["XI TKJ 2 Student", "Ketua Paskibra", "Duta Siswa"];
-const TECH_STACK = ["Cisco", "CapCut", "Canva", "Adobe"];
+const TECH_STACK = ["Canva"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/Theeskyes", label: "GitHub Profile" },
   { icon: Linkedin, link: "https://www.linkedin.com/in/esa-kenzie-galaksi-putra-1aa7993a9", label: "LinkedIn Profile" },
