@@ -24,13 +24,13 @@ const MainTitle = memo(() => (
       <span className="relative inline-block">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-          Network Engineer
+          Ketua Paskibra
         </span>
       </span>
       <span className="relative inline-block mt-2">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] bg-clip-text text-transparent">
-          & Editor 
+          SMKN 1 CIKARANG UTARA    
         </span>
       </span>
     </h1>
@@ -75,12 +75,12 @@ const SocialLink = memo(({ icon: Icon, link, label }) => (
 const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
-const WORDS = ["XI TKJ 2 Student", "Video Editor", "Network Enthusiast"];
+const WORDS = ["XI TKJ 2 Student", "Ketua Paskibra", "Duta Siswa"];
 const TECH_STACK = ["Cisco", "CapCut", "Canva", "Adobe"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/Theeskyes", label: "GitHub Profile" },
   { icon: Linkedin, link: "https://www.linkedin.com/in/esa-kenzie-galaksi-putra-1aa7993a9", label: "LinkedIn Profile" },
-  { icon: Instagram, link: "https://www.instagram.com/__woopie", label: "Instagram Profile" }
+  { icon: Instagram, link: "https://www.instagram.com/naabill11", label: "Instagram Profile" }
 ];
 
 const Home = () => {
@@ -139,25 +139,25 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Esa Kenzie Galaksi Putra — Network Engineer Video Editor</title>
-        <meta name="description" content="Website portofolio Esa Kenzie Galaksi Putra, siswa XI TKJ 2." />
+        <title>Muhammad Nabil Akhram — Ketua Paskibra Duta siswa</title>
+        <meta name="description" content="Website portofolio Muhammad Nabil Akhram, Ketua Paskibra SMKN 1 Cikarang Utara." />
      <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://portofolio-kenzie3.vercel.app" />
-        <meta property="og:title" content="Esa Kenzie Galaksi Putra  — Network Engineer Video Editor" />
-     <meta property="og:description" content="Website resmi dan portofolio Esa Kenzie Galaksi Putra, Network Engineer Video Editor." />
-        <meta property="og:url" content="https://portofolio-kenzie3.vercel.app" />
+        <link rel="canonical" href="https://portofolio-nabil-nu.vercel.app/" />
+        <meta property="og:title" content="Muhammad Nabil Akhram  — Ketua Paskibra Duta siswa" />
+     <meta property="og:description" content="Website resmi dan portofolio Muhammad Nabil Akhram, Ketua Paskibra Duta siswa." />
+        <meta property="og:url" content="https://portofolio-nabil-nu.vercel.app" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{`
           {
             "@context": "https://schema.org",
             "@type": "Person",
-            "name": "Esa Kenzie Galaksi Putra",
-            "jobTitle": "Network Engineer Video Editor",
-            "url": "https://portofolio-kenzie3.vercel.app",
+            "name": "Muhammad Nabil Akhram",
+            "jobTitle": "Ketua Paskibra Duta siswa",
+            "url": "https://portofolio-nabil-nu.vercel.app",
             "sameAs": [
               "https://github.com/Theeskyes",
               "https://www.linkedin.com/in/esa-kenzie-galaksi-putra-1aa7993a9",
-              "https://www.instagram.com/__woopie"
+              "https://www.instagram.com/naabill11"
             ]
           }
         `}</script>
