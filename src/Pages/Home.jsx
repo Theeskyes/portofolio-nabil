@@ -24,13 +24,13 @@ const MainTitle = memo(() => (
       <span className="relative inline-block">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-          Ketua Paskibra
+          Ketua Paskibra SMKN 1 
         </span>
       </span>
       <span className="relative inline-block mt-2">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] bg-clip-text text-transparent">
-          SMKN 1 CIKARANG UTARA    
+          Cikarang Utara    
         </span>
       </span>
     </h1>
