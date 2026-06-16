@@ -143,7 +143,7 @@ const ContactPage = () => {
         className="container px-[1%] grid grid-cols-1 gap-12"
           <div
         
-            className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-500 hover:shadow-[#0ea5e9]/10"
+            className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-500 hover:shadow-[#0ea5e9]/10 w-full"
           >
             <div className="flex justify-between items-start mb-8">
               <div>
