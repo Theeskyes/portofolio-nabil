@@ -15,84 +15,17 @@ import { Code, Award, Boxes, X, Download, Eye } from "lucide-react";
 const projects = [
   {
     id: 1,
-    Img: "https://img.youtube.com/vi/vgJq6qONv-4/hqdefault.jpg",
-    Title: "Sejarah Penculikan di Rengasdengklok",
-    Description: "Project sejarah tentang peristiwa penculikan di Rengasdengklok.",
-    Link: "https://youtu.be/vgJq6qONv-4?si=0N6hB5yP1FBlekd0",
-    Github: "Private",
-    TechStack: [],
-    Features: [],
-  },
-  {
-    id: 2,
-    Img: "https://img.youtube.com/vi/6hqtq05A9Ac/hqdefault.jpg",
-    Title: "Matematika Peluang Kombinasi",
-    Description: "Project matematika tentang peluang kombinasi.",
-    Link: "https://youtu.be/6hqtq05A9Ac?si=LO4uJ331D9NZvGRp",
-    Github: "Private",
-    TechStack: [],
-    Features: [],
-  },
-  {
-    id: 3,
-    Img: "https://img.youtube.com/vi/ZnRdT0wYIoI/hqdefault.jpg",
-    Title: "Hak dan Kewajiban Sebagai Warga Sekolah",
-    Description: "Project Pendidikan Pancasila tentang hak dan kewajiban sebagai warga sekolah.",
-    Link: "https://youtu.be/ZnRdT0wYIoI?si=Qupzbke3JfE1mMVl",
-    Github: "Private",
-    TechStack: [],
-    Features: [],
-  },
-  {
-    id: 4,
-    Img: "https://img.youtube.com/vi/f7uKq_xRda4/hqdefault.jpg",
-    Title: "Last Result Sejarah Nyanyi",
-    Description: "Project sejarah dengan format lagu.",
-    Link: "https://youtu.be/f7uKq_xRda4?si=QW5yfcotohyyFrDr",
-    Github: "Private",
-    TechStack: [],
-    Features: [],
-  },
-  {
-    id: 5,
-    Img: "https://img.youtube.com/vi/-lQmptVMiIQ/hqdefault.jpg",
-    Title: "Drama BK Tentang Bullying",
-    Description: "Tugas drama Bimbingan Konseling tentang isu bullying.",
-    Link: "https://youtu.be/-lQmptVMiIQ?si=6iKmlLNdfK_qCWiS",
+    Img: "https://img.youtube.com/vi/F9UhB93VZHs/hqdefault.jpg",
+    Title: "Tugas Matematika \"Peluang Dasar\"",
+    Description: "Tugas Matematika Peluang Dasar Muhammad Nabil Akhram XI TKJ 2.",
+    Link: "https://youtu.be/F9UhB93VZHs?si=TC24hp7D9tlO3Gl-",
     Github: "Private",
     TechStack: [],
     Features: [],
   },
 ];
 
-const certificates = [
-  {
-    id: 1,
-    title: "Sertifikat Pelatihan Fundamental",
-    subtitle: "Associate Computer Network Technician - DTA Komdigi, 4-8 April 2026",
-    pages: [
-      "https://tuwtizpvlztsrvspzjrp.supabase.co/storage/v1/object/public/certificate-images/Document%20from%20Esa%20Kenzie%20Galaksi%20Putra%20(1)-1.png",
-      "https://tuwtizpvlztsrvspzjrp.supabase.co/storage/v1/object/public/certificate-images/Document%20from%20Esa%20Kenzie%20Galaksi%20Putra%20(1)-2.png",
-    ],
-  },
-  {
-    id: 2,
-    title: "Sertifikat Pelatihan Intermediate",
-    subtitle: "Associate Computer Network Technician - DTA Komdigi, 30 Maret - 18 April 2026",
-    pages: [
-      "https://tuwtizpvlztsrvspzjrp.supabase.co/storage/v1/object/public/certificate-images/Document%20from%20Esa%20Kenzie%20Galaksi%20Putra%20(2)-1.png",
-      "https://tuwtizpvlztsrvspzjrp.supabase.co/storage/v1/object/public/certificate-images/Document%20from%20Esa%20Kenzie%20Galaksi%20Putra%20(2)-2.png",
-    ],
-  },
-  {
-    id: 3,
-    title: "Certificate of Appreciation",
-    subtitle: "Guest Lecture 2026: IoT & Digital Transformation - President University, 16 April 2026",
-    pages: [
-      "https://tuwtizpvlztsrvspzjrp.supabase.co/storage/v1/object/public/certificate-images/Document%20from%20Esa%20Kenzie%20Galaksi%20Putra-1.png",
-    ],
-  },
-];
+const certificates = [];
 
 const techStacks = [
   { icon: "html.svg", language: "HTML" },
@@ -100,13 +33,6 @@ const techStacks = [
   { icon: "javascript.svg", language: "JavaScript" },
   { icon: "tailwind.svg", language: "Tailwind CSS" },
   { icon: "reactjs.svg", language: "ReactJS" },
-  { icon: "vite.svg", language: "Vite" },
-  { icon: "nodejs.svg", language: "Node JS" },
-  { icon: "bootstrap.svg", language: "Bootstrap" },
-  { icon: "firebase.svg", language: "Firebase" },
-  { icon: "MUI.svg", language: "Material UI" },
-  { icon: "vercel.svg", language: "Vercel" },
-  { icon: "SweetAlert.svg", language: "SweetAlert2" },
 ];
 
 const ToggleButton = ({ onClick, isShowingMore }) => (
@@ -320,8 +246,8 @@ export default function FullWidthTabs() {
           </span>
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2">
-          Explore my journey through projects, certifications, and technical expertise.
-          Each section represents a milestone in my continuous learning path.
+           Jelajahi perjalanan saya melalui proyek, sertifikasi, dan keahlian teknis.
+           Setiap bagian mencerminkan pencapaian dalam proses belajar yang terus berkembang.
         </p>
       </div>
 
