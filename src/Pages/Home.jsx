@@ -154,7 +154,6 @@ const Home = () => {
             "url": "https://portofolio-nabil-nu.vercel.app",
             "sameAs": [
               "https://github.com/Theeskyes",
-              "https://www.linkedin.com/in/esa-kenzie-galaksi-putra-1aa7993a9",
               "https://www.instagram.com/naabill11"
             ]
           }
