@@ -28,10 +28,9 @@ const projects = [
 const certificates = [
   {
     id: 1,
-    img: "/MUHAMMAD_NABIL_AKHRAM.jpg",
-    Title: "Duta Siswa Kabupaten Bekasi 2026",
-    Issuer: "Komite Seleksi Nasional Duta Siswa",
-    Date: "2026",
+    pages: ["/MUHAMMAD_NABIL_AKHRAM.jpg"],
+    title: "Duta Siswa Kabupaten Bekasi 2026",
+    subtitle: "Komite Seleksi Nasional Duta Siswa, 2026",
   },
 ];
 
