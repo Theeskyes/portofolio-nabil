@@ -44,56 +44,57 @@ const ContactPage = () => {
     }
   };
 
-  return (
-    <div className="px-[5%] sm:px-[5%] lg:px-[10%]">
-      <div className="text-center lg:mt-[5%] mt-10 mb-2 sm:px-0 px-[5%]">
-        <h2 data-aos="fade-down" data-aos-duration="1000" className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#0ea5e9] to-[#2563eb]">
-          <span style={{ color: "#0ea5e9", backgroundImage: "linear-gradient(45deg, #0ea5e9 10%, #2563eb 93%)", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-            Hubungi Saya
-          </span>
-        </h2>
-        <p data-aos="fade-up" data-aos-duration="1100" className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2">
-          Punya pertanyaan? Kirimi saya pesan, dan saya akan segera membalasnya.
-        </p>
+return (
+  <div className="w-full bg-gradient-to-br from-white/10 to-white/5 rounded-2xl p-6 py-8 backdrop-blur-xl">
+    <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2" data-aos="fade-down">
+      <span className="inline-block w-8 h-1 bg-indigo-500 rounded-full"></span>
+      Connect With Me
+    </h3>
+
+    <div className="flex flex-col gap-4">
+      {/* Instagram - center, sama ukuran */}
+      <div className="flex justify-center">
+        <a href={primary.url} target="_blank" rel="noopener noreferrer"
+          className="group relative flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-500 w-1/2"
+          data-aos="fade-up" data-aos-delay="100">
+          <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r ${primary.gradient}`} />
+          <div className="relative flex items-center justify-center">
+            <div className="absolute inset-0 opacity-20 rounded-lg transition-all duration-500 group-hover:scale-125 group-hover:opacity-30" style={{ backgroundColor: primary.color }} />
+            <div className="relative p-2 rounded-lg">
+              <primary.icon className="w-5 h-5 transition-all duration-500 group-hover:scale-110" style={{ color: primary.color }} />
+            </div>
+          </div>
+          <div className="flex flex-col min-w-0">
+            <span className="text-sm font-bold text-gray-200 group-hover:text-white transition-colors duration-300">{primary.displayName}</span>
+            <span className="text-xs text-gray-400 truncate group-hover:text-gray-300 transition-colors duration-300">{primary.subText}</span>
+          </div>
+          <ExternalLink className="w-4 h-4 text-gray-500 group-hover:text-white ml-auto opacity-0 group-hover:opacity-100 transition-all duration-300" />
+        </a>
       </div>
 
-      <div className="h-auto py-10" id="Contact">
-        <div className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 w-full">
-          <div className="flex justify-between items-start mb-8">
-            <div>
-              <h2 className="text-4xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#0ea5e9] to-[#2563eb]">Hubungi</h2>
-              <p className="text-gray-400">Ada yang ingin didiskusikan? Kirim saya pesan dan mari kita bicara.</p>
+      {/* YouTube & TikTok */}
+      <div className="grid grid-cols-2 gap-4">
+        {others.map((link, index) => (
+          <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer"
+            className="group relative flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-500"
+            data-aos="fade-up" data-aos-delay={200 + index * 100}>
+            <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r ${link.gradient}`} />
+            <div className="relative flex items-center justify-center">
+              <div className="absolute inset-0 opacity-20 rounded-lg transition-all duration-500 group-hover:scale-125 group-hover:opacity-30" style={{ backgroundColor: link.color }} />
+              <div className="relative p-2 rounded-lg">
+                <link.icon className="w-5 h-5 transition-all duration-500 group-hover:scale-110" style={{ color: link.color }} />
+              </div>
             </div>
-            <Share2 className="w-10 h-10 text-[#0ea5e9] opacity-50" />
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div data-aos="fade-up" data-aos-delay="100" className="relative group">
-              <User className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-[#0ea5e9] transition-colors" />
-              <input type="text" name="name" placeholder="Nama Anda" value={formData.name} onChange={handleChange} disabled={isSubmitting} className="w-full p-4 pl-12 bg-white/10 rounded-xl border border-white/20 placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#0ea5e9]/30 transition-all duration-300 hover:border-[#0ea5e9]/30 disabled:opacity-50" required />
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm font-bold text-gray-200 group-hover:text-white transition-colors duration-300">{link.displayName}</span>
+              <span className="text-xs text-gray-400 truncate group-hover:text-gray-300 transition-colors duration-300">{link.subText}</span>
             </div>
-            <div data-aos="fade-up" data-aos-delay="200" className="relative group">
-              <Mail className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-[#0ea5e9] transition-colors" />
-              <input type="email" name="email" placeholder="Email Anda" value={formData.email} onChange={handleChange} disabled={isSubmitting} className="w-full p-4 pl-12 bg-white/10 rounded-xl border border-white/20 placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#0ea5e9]/30 transition-all duration-300 hover:border-[#0ea5e9]/30 disabled:opacity-50" required />
-            </div>
-            <div data-aos="fade-up" data-aos-delay="300" className="relative group">
-              <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-[#0ea5e9] transition-colors" />
-              <textarea name="message" placeholder="Pesan Anda" value={formData.message} onChange={handleChange} disabled={isSubmitting} className="w-full resize-none p-4 pl-12 bg-white/10 rounded-xl border border-white/20 placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#0ea5e9]/30 transition-all duration-300 hover:border-[#0ea5e9]/30 h-[9.9rem] disabled:opacity-50" required />
-            </div>
-            <button data-aos="fade-up" data-aos-delay="400" type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] text-white py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#0ea5e9]/20 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
-              <Send className="w-5 h-5" />
-              {isSubmitting ? 'Mengirim...' : 'Kirim Pesan'}
-            </button>
-          </form>
-
-          <div className="mt-10 pt-6 border-t border-white/10 flex justify-center">
-            <div className="w-full max-w-md">
-              <SocialLinks />
-            </div>
-          </div>
-        </div>
+            <ExternalLink className="w-4 h-4 text-gray-500 group-hover:text-white ml-auto opacity-0 group-hover:opacity-100 transition-all duration-300" />
+          </a>
+        ))}
       </div>
     </div>
+  </div>
   );
 };
 
